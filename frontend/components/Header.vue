@@ -13,16 +13,18 @@
             <span class="text-xs">⌄</span>
           </button>
           <div
-            class="invisible absolute left-0 top-full z-30 mt-3 min-w-48 rounded-lg border border-brand-border bg-white p-2 opacity-0 shadow-card transition group-hover:visible group-hover:opacity-100"
+            class="invisible absolute left-0 top-full z-30 pt-3 opacity-0 transition-all group-hover:visible group-hover:opacity-100"
           >
-            <NuxtLink
-              v-for="country in countryOptions"
-              :key="country.code"
-              class="block rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-brand-surface hover:text-brand-blue"
-              :to="country.slug"
-            >
-              {{ country.name }}
-            </NuxtLink>
+            <div class="min-w-48 rounded-lg border border-brand-border bg-white p-2 shadow-card">
+              <NuxtLink
+                v-for="country in countryOptions"
+                :key="country.code"
+                class="block rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-brand-surface hover:text-brand-blue"
+                :to="country.slug"
+              >
+                {{ country.name }}
+              </NuxtLink>
+            </div>
           </div>
         </div>
         <span>API</span>
@@ -30,10 +32,24 @@
         <span>Blog</span>
         <NuxtLink class="hover:text-brand-blue" to="/contact">About</NuxtLink>
       </nav>
-      <div class="flex items-center gap-2 text-sm font-medium text-brand-ink">
+      <div class="group relative flex items-center gap-2 text-sm font-medium text-brand-ink cursor-pointer">
         <span class="text-lg">◉</span>
-        <span class="hidden sm:inline">English</span>
+        <span class="hidden sm:inline">{{ currentLocaleName }}</span>
         <span class="text-xs">⌄</span>
+        <div
+          class="invisible absolute right-0 top-full z-30 pt-3 opacity-0 transition-all group-hover:visible group-hover:opacity-100"
+        >
+          <div class="min-w-32 rounded-lg border border-brand-border bg-white p-2 shadow-card">
+            <button
+              v-for="locale in availableLocales"
+              :key="locale.code"
+              class="block w-full text-left rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-brand-surface hover:text-brand-blue"
+              @click="setLocale(locale.code)"
+            >
+              {{ locale.name }}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -41,4 +57,12 @@
 
 <script setup lang="ts">
 import { countryOptions } from '~/data/country-pages'
+
+const { locale, locales, setLocale } = useI18n()
+
+const availableLocales = computed(() => locales.value as any[])
+const currentLocaleName = computed(() => {
+  const current = availableLocales.value.find(l => l.code === locale.value)
+  return current ? current.name : 'English'
+})
 </script>

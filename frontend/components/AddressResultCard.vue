@@ -5,7 +5,14 @@
         <h2 class="text-xl font-bold text-brand-ink">Generated Address</h2>
         <span class="rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">New</span>
       </div>
-      <span class="h-5 w-5 rounded-full border-2 border-brand-ink border-r-transparent"></span>
+      <button
+        class="group/btn flex h-9 w-9 items-center justify-center rounded-full border border-brand-border bg-white text-slate-400 shadow-sm transition-all hover:border-brand-blue hover:text-brand-blue hover:shadow-md active:scale-95"
+        type="button"
+        title="Refresh Address"
+        @click="$emit('refresh')"
+      >
+        <span class="text-xl transition-transform group-hover/btn:rotate-180 duration-500">↻</span>
+      </button>
     </div>
 
     <div v-if="activeAddress" class="mt-5 grid gap-4 text-sm">
@@ -32,6 +39,10 @@ import type { AddressResult } from '~/types/address'
 const props = defineProps<{
   address?: AddressResult | null
   showSample?: boolean
+}>()
+
+const emit = defineEmits<{
+  refresh: []
 }>()
 
 const sampleAddress: AddressResult = {

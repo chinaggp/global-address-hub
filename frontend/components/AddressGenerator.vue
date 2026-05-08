@@ -1,22 +1,22 @@
 <template>
   <section class="card p-7">
     <form class="space-y-6" @submit.prevent="generate">
-      <CountrySelector v-model="selectedCountry" :countries="countries" label="1. Select Country" />
+      <CountrySelector v-model="selectedCountry" :countries="countries" :label="$t('generator.select_country')" />
       <RegionSelector
         v-model="selectedRegion"
         :regions="regions"
         :loading="regionsLoading"
-        :label="`2. Select ${regionLabel} (Optional)`"
+        :label="$t('generator.select_region', { region: regionLabel })"
       />
       <button class="btn-primary h-12 w-full gap-2 text-base" type="submit" :disabled="loading">
         <span class="text-lg">↻</span>
-        {{ loading ? 'Generating...' : 'Generate Address' }}
+        {{ loading ? $t('generator.btn_generating') : $t('generator.btn_generate') }}
       </button>
     </form>
 
     <div class="mt-6 flex items-start gap-3 text-sm leading-6 text-slate-600">
       <span class="mt-0.5 text-brand-blue">◆</span>
-      <p>All data is randomly generated and for reference only.</p>
+      <p>{{ $t('generator.disclaimer') }}</p>
     </div>
 
     <p v-if="error" class="mt-4 rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">
@@ -78,6 +78,8 @@ async function loadRegions() {
   }
 }
 
+const generatorRef = ref<any>(null)
+
 async function generate() {
   error.value = ''
   loading.value = true
@@ -91,10 +93,16 @@ async function generate() {
   }
 }
 
+defineExpose({
+  generate
+})
+
 watch(selectedCountry, loadRegions)
 
 onMounted(async () => {
   await loadCountries()
   await loadRegions()
+  // Trigger initial generation
+  await generate()
 })
 </script>

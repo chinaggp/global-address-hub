@@ -10,24 +10,24 @@
             100% Free · No Sign Up · Instant Copy
           </p>
           <h1 class="mt-8 max-w-3xl text-4xl font-extrabold leading-tight tracking-normal text-brand-ink lg:text-5xl">
-            Random Address Generator for <span class="text-brand-blue">Any Country</span>
+            {{ $t('welcome') }}
           </h1>
           <p class="mt-5 max-w-2xl text-base leading-7 text-slate-700">
-            Generate random, real-looking addresses for the United States, Japan, United Kingdom, Canada, Australia and more.
+            {{ $t('subtitle') }}
           </p>
           <ul class="mt-7 space-y-4 text-sm font-medium text-brand-ink">
-            <li v-for="benefit in benefits" :key="benefit" class="flex items-center gap-3">
+            <li v-for="(benefit, key) in benefits" :key="key" class="flex items-center gap-3">
               <span class="flex h-4 w-4 items-center justify-center rounded-full bg-brand-blue text-[10px] text-white">✓</span>
-              {{ benefit }}
+              {{ $t(`features.${key}`) }}
             </li>
           </ul>
         </div>
 
         <div class="lg:pt-4">
-          <AddressGenerator @generated="address = $event" />
+          <AddressGenerator ref="generatorRef" @generated="address = $event" />
         </div>
         <div class="lg:pt-4">
-          <AddressResultCard :address="address" show-sample />
+          <AddressResultCard :address="address" show-sample @refresh="handleRefresh" />
         </div>
       </div>
     </section>
@@ -80,10 +80,25 @@ import { countryOptions } from '~/data/country-pages'
 import type { AddressResult, FaqItem } from '~/types/address'
 
 const address = ref<AddressResult | null>(null)
+const generatorRef = ref<any>(null)
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
 
-const benefits = ['Real address format', 'Phone number included', 'ZIP / Postal code valid', 'One-click copy']
+const handleRefresh = () => {
+  console.log('handleRefresh clicked, generatorRef:', generatorRef.value)
+  if (generatorRef.value && typeof generatorRef.value.generate === 'function') {
+    generatorRef.value.generate()
+  } else {
+    console.error('generate method not found on generatorRef')
+  }
+}
+
+const benefits = {
+  format: 'Real address format',
+  phone: 'Phone number included',
+  zip: 'ZIP / Postal code valid',
+  copy: 'One-click copy'
+}
 
 const flagMap: Record<string, string> = {
   US: '🇺🇸',
