@@ -1,0 +1,11 @@
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+
+app:
+  cors:
+    production-origin: https://globaladdresshub.com
+  rate-limit:
+    random-address-per-minute: 1000

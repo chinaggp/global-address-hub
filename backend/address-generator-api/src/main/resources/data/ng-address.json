@@ -1,0 +1,34 @@
+{
+  "country": "Nigeria",
+  "countryCode": "NG",
+  "firstNames": ["Ada", "Chinedu", "Amina", "Tunde", "Ife"],
+  "lastNames": ["Okafor", "Balogun", "Ibrahim", "Eze", "Adebayo"],
+  "streetNames": ["Adeniyi Jones Avenue", "Marina Road", "Independence Way", "Ahmadu Bello Way", "Garden Avenue"],
+  "regions": [
+    {"code": "LA", "name": "Lagos", "phonePrefixes": ["70", "80", "81"], "cities": [
+      {"name": "Ikeja", "postalCodes": ["100271", "100282"]},
+      {"name": "Surulere", "postalCodes": ["101283", "101241"]},
+      {"name": "Lekki", "postalCodes": ["105102", "106104"]}
+    ]},
+    {"code": "FC", "name": "Federal Capital Territory", "phonePrefixes": ["70", "81", "90"], "cities": [
+      {"name": "Abuja", "postalCodes": ["900211", "900108"]},
+      {"name": "Gwagwalada", "postalCodes": ["902101", "902102"]},
+      {"name": "Kuje", "postalCodes": ["903101", "903102"]}
+    ]},
+    {"code": "KN", "name": "Kano", "phonePrefixes": ["80", "81", "90"], "cities": [
+      {"name": "Kano Municipal", "postalCodes": ["700211", "700213"]},
+      {"name": "Nasarawa", "postalCodes": ["700223", "700224"]},
+      {"name": "Fagge", "postalCodes": ["700231", "700232"]}
+    ]},
+    {"code": "RV", "name": "Rivers", "phonePrefixes": ["70", "80", "91"], "cities": [
+      {"name": "Port Harcourt", "postalCodes": ["500101", "500102"]},
+      {"name": "Obio-Akpor", "postalCodes": ["500272", "500271"]},
+      {"name": "Bonny", "postalCodes": ["503101", "503102"]}
+    ]},
+    {"code": "OY", "name": "Oyo", "phonePrefixes": ["80", "81", "90"], "cities": [
+      {"name": "Ibadan", "postalCodes": ["200211", "200212"]},
+      {"name": "Ogbomosho", "postalCodes": ["210101", "210102"]},
+      {"name": "Oyo", "postalCodes": ["211101", "211102"]}
+    ]}
+  ]
+}

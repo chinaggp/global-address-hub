@@ -1,0 +1,34 @@
+{
+  "country": "United States",
+  "countryCode": "US",
+  "firstNames": ["Alex", "Taylor", "Jordan", "Morgan", "Casey"],
+  "lastNames": ["Parker", "Reed", "Bennett", "Hayes", "Coleman"],
+  "streetNames": ["Maple Street", "Oak Avenue", "Cedar Lane", "Lakeview Drive", "Market Street"],
+  "regions": [
+    {"code": "CA", "name": "California", "phonePrefixes": ["213", "415", "619"], "cities": [
+      {"name": "Los Angeles", "postalCodes": ["90012", "90015"]},
+      {"name": "San Francisco", "postalCodes": ["94103", "94107"]},
+      {"name": "San Diego", "postalCodes": ["92101", "92103"]}
+    ]},
+    {"code": "NY", "name": "New York", "phonePrefixes": ["212", "315", "518"], "cities": [
+      {"name": "New York", "postalCodes": ["10001", "10011"]},
+      {"name": "Buffalo", "postalCodes": ["14201", "14202"]},
+      {"name": "Albany", "postalCodes": ["12207", "12210"]}
+    ]},
+    {"code": "TX", "name": "Texas", "phonePrefixes": ["214", "512", "713"], "cities": [
+      {"name": "Dallas", "postalCodes": ["75201", "75204"]},
+      {"name": "Austin", "postalCodes": ["78701", "78703"]},
+      {"name": "Houston", "postalCodes": ["77002", "77006"]}
+    ]},
+    {"code": "FL", "name": "Florida", "phonePrefixes": ["305", "407", "813"], "cities": [
+      {"name": "Miami", "postalCodes": ["33130", "33131"]},
+      {"name": "Orlando", "postalCodes": ["32801", "32803"]},
+      {"name": "Tampa", "postalCodes": ["33602", "33606"]}
+    ]},
+    {"code": "IL", "name": "Illinois", "phonePrefixes": ["312", "618", "847"], "cities": [
+      {"name": "Chicago", "postalCodes": ["60601", "60607"]},
+      {"name": "Springfield", "postalCodes": ["62701", "62703"]},
+      {"name": "Evanston", "postalCodes": ["60201", "60202"]}
+    ]}
+  ]
+}
