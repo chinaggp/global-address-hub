@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="bg-brand-surface">
-      <div class="container-page grid gap-8 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:py-16">
+      <div class="container-page grid gap-8 py-12 lg:grid-cols-[1.15fr_0.72fr_1.02fr] lg:items-start lg:py-16">
         <div>
           <p class="text-sm font-semibold uppercase tracking-wide text-brand-green">
             For software testing, form testing, and educational use only.
@@ -20,13 +20,16 @@
           </div>
         </div>
 
-        <div class="space-y-5">
+        <div class="lg:pt-4">
           <AddressGenerator
+            ref="generatorRef"
             :default-country="page.code"
             :region-label="page.regionLabel"
             @generated="address = $event"
           />
-          <AddressResultCard :address="address" />
+        </div>
+        <div class="lg:pt-4">
+          <AddressResultCard :address="address" @refresh="handleRefresh" />
         </div>
       </div>
     </section>
@@ -45,6 +48,14 @@ const props = defineProps<{
 }>()
 
 const address = ref<AddressResult | null>(null)
+const generatorRef = ref<any>(null)
+
+const handleRefresh = () => {
+  if (generatorRef.value) {
+    generatorRef.value.generate()
+  }
+}
+
 const config = useRuntimeConfig()
 const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
 const canonical = `${siteUrl}${props.page.slug}`
