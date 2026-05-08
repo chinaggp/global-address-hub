@@ -31,6 +31,68 @@ import java.util.Optional;
 @Service
 public class CountryRuleService {
 
+    private static final Map<String, String> ZH_COUNTRY_NAMES = Map.of(
+            "US", "美国",
+            "JP", "日本",
+            "UK", "英国",
+            "CA", "加拿大",
+            "AU", "澳大利亚",
+            "TR", "土耳其",
+            "NG", "尼日利亚"
+    );
+
+    private static final Map<String, Map<String, String>> ZH_REGION_NAMES = Map.of(
+            "US", Map.of(
+                    "CA", "加利福尼亚州",
+                    "NY", "纽约州",
+                    "TX", "得克萨斯州",
+                    "FL", "佛罗里达州",
+                    "IL", "伊利诺伊州"
+            ),
+            "JP", Map.of(
+                    "13", "东京都",
+                    "27", "大阪府",
+                    "14", "神奈川县",
+                    "23", "爱知县",
+                    "40", "福冈县"
+            ),
+            "UK", Map.of(
+                    "ENG", "英格兰",
+                    "SCT", "苏格兰",
+                    "WLS", "威尔士",
+                    "NIR", "北爱尔兰",
+                    "CNL", "康沃尔"
+            ),
+            "CA", Map.of(
+                    "ON", "安大略省",
+                    "QC", "魁北克省",
+                    "BC", "不列颠哥伦比亚省",
+                    "AB", "艾伯塔省",
+                    "NS", "新斯科舍省"
+            ),
+            "AU", Map.of(
+                    "NSW", "新南威尔士州",
+                    "VIC", "维多利亚州",
+                    "QLD", "昆士兰州",
+                    "WA", "西澳大利亚州",
+                    "SA", "南澳大利亚州"
+            ),
+            "TR", Map.of(
+                    "34", "伊斯坦布尔",
+                    "06", "安卡拉",
+                    "35", "伊兹密尔",
+                    "16", "布尔萨",
+                    "07", "安塔利亚"
+            ),
+            "NG", Map.of(
+                    "LA", "拉各斯",
+                    "FC", "联邦首都区",
+                    "KN", "卡诺州",
+                    "RV", "河流州",
+                    "OY", "奥约州"
+            )
+    );
+
     private final Map<String, CountryAddressData> countries;
     private final Map<String, AddressRule> rules;
 
@@ -48,14 +110,25 @@ public class CountryRuleService {
     }
 
     public List<CountryOption> countries() {
+        return countries(null, null);
+    }
+
+    public List<CountryOption> countries(String locale, String lang) {
+        boolean chinese = isChineseLocale(locale, lang);
         return Arrays.stream(CountryCode.values())
-                .map(code -> new CountryOption(code.name(), code.displayName()))
+                .map(code -> new CountryOption(code.name(), countryName(code, chinese)))
                 .toList();
     }
 
     public List<RegionOption> regions(String country) {
+        return regions(country, null, null);
+    }
+
+    public List<RegionOption> regions(String country, String locale, String lang) {
+        CountryCode countryCode = normalizeCountry(country);
+        boolean chinese = isChineseLocale(locale, lang);
         return countryData(country).regions().stream()
-                .map(region -> new RegionOption(region.code(), region.name()))
+                .map(region -> new RegionOption(region.code(), regionName(countryCode, region, chinese)))
                 .toList();
     }
 
@@ -172,5 +245,39 @@ public class CountryRuleService {
                 message,
                 new IllegalStateException(message)
         );
+    }
+
+    private String countryName(CountryCode code, boolean chinese) {
+        if (!chinese) {
+            return code.displayName();
+        }
+        return ZH_COUNTRY_NAMES.getOrDefault(code.name(), code.displayName());
+    }
+
+    private String regionName(CountryCode countryCode, RegionAddressData region, boolean chinese) {
+        if (!chinese) {
+            return region.name();
+        }
+        return ZH_REGION_NAMES.getOrDefault(countryCode.name(), Map.of())
+                .getOrDefault(region.code(), region.name());
+    }
+
+    private boolean isChineseLocale(String locale, String lang) {
+        String requested = firstText(locale, lang);
+        if (requested == null) {
+            return false;
+        }
+        String normalized = requested.trim().replace('_', '-').toLowerCase(Locale.ROOT);
+        return "zh".equals(normalized) || normalized.startsWith("zh-");
+    }
+
+    private String firstText(String first, String second) {
+        if (first != null && !first.isBlank()) {
+            return first;
+        }
+        if (second != null && !second.isBlank()) {
+            return second;
+        }
+        return null;
     }
 }

@@ -7,7 +7,7 @@
       :value="modelValue"
       @change="onChange"
     >
-      <option value="">Any available region</option>
+      <option value="">{{ $t('generator.any_region') }}</option>
       <option v-for="region in regions" :key="region.code" :value="region.code">
         {{ region.name }}
       </option>

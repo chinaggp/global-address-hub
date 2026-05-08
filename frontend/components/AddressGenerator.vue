@@ -6,7 +6,7 @@
         v-model="selectedRegion"
         :regions="regions"
         :loading="regionsLoading"
-        :label="$t('generator.select_region', { region: regionLabel })"
+        :label="$t('generator.select_region', { region: resolvedRegionLabel })"
       />
       <button class="btn-primary h-12 w-full gap-2 text-base" type="submit" :disabled="loading">
         <span class="text-lg">↻</span>
@@ -26,7 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import { countryOptions } from '~/data/country-pages'
 import type { AddressResult, CountryOption, RegionOption } from '~/types/address'
 
 const props = withDefaults(
@@ -44,24 +43,25 @@ const emit = defineEmits<{
   generated: [address: AddressResult]
 }>()
 
+const { locale, t } = useI18n()
 const { getCountries, getRegions, getRandomAddress } = useAddressApi()
+const { localizedCountryOptions } = useCountryContent()
 
 const selectedCountry = ref(props.defaultCountry)
 const selectedRegion = ref('')
-const countries = ref<CountryOption[]>(countryOptions)
+const countries = ref<CountryOption[]>(localizedCountryOptions.value)
 const regions = ref<RegionOption[]>([])
 const loading = ref(false)
 const regionsLoading = ref(false)
 const error = ref('')
+const resolvedRegionLabel = computed(() => (props.regionLabel === 'Region' ? t('generator.region') : props.regionLabel))
 
 async function loadCountries() {
   try {
     const remoteCountries = await getCountries()
-    if (remoteCountries.length > 0) {
-      countries.value = remoteCountries
-    }
+    countries.value = remoteCountries.length > 0 ? remoteCountries : localizedCountryOptions.value
   } catch {
-    countries.value = countryOptions
+    countries.value = localizedCountryOptions.value
   }
 }
 
@@ -77,8 +77,6 @@ async function loadRegions() {
     regionsLoading.value = false
   }
 }
-
-const generatorRef = ref<any>(null)
 
 async function generate() {
   error.value = ''
@@ -98,11 +96,14 @@ defineExpose({
 })
 
 watch(selectedCountry, loadRegions)
+watch(locale, async () => {
+  await loadCountries()
+  await loadRegions()
+})
 
 onMounted(async () => {
   await loadCountries()
   await loadRegions()
-  // Trigger initial generation
   await generate()
 })
 </script>

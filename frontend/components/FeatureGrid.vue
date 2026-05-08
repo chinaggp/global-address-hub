@@ -3,15 +3,15 @@
     <div class="container-page grid gap-6 py-7 md:grid-cols-2 lg:grid-cols-4">
       <article
         v-for="feature in features"
-        :key="feature.title"
+        :key="feature.key"
         class="flex items-center gap-5 border-brand-border lg:border-r lg:pr-8 last:border-r-0"
       >
         <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-blue-50 text-3xl text-brand-blue">
           {{ feature.icon }}
         </div>
         <div>
-          <h3 class="text-base font-bold text-brand-ink">{{ feature.title }}</h3>
-          <p class="mt-2 text-sm leading-6 text-slate-600">{{ feature.copy }}</p>
+          <h3 class="text-base font-bold text-brand-ink">{{ $t(`feature_grid.${feature.key}.title`) }}</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">{{ $t(`feature_grid.${feature.key}.copy`) }}</p>
         </div>
       </article>
     </div>
@@ -21,24 +21,20 @@
 <script setup lang="ts">
 const features = [
   {
-    icon: '◎',
-    title: 'Multiple Countries',
-    copy: 'Support for 20+ countries and regions.'
+    key: 'countries',
+    icon: '◎'
   },
   {
-    icon: '◈',
-    title: 'Realistic & Valid',
-    copy: 'Addresses follow local formatting rules.'
+    key: 'realistic',
+    icon: '◈'
   },
   {
-    icon: '▾',
-    title: 'Fast & Free',
-    copy: 'Instantly generate and copy with one click.'
+    key: 'fast',
+    icon: '▾'
   },
   {
-    icon: '▣',
-    title: 'Privacy First',
-    copy: 'No personal data collected. 100% free to use.'
+    key: 'privacy',
+    icon: '▣'
   }
 ]
 </script>

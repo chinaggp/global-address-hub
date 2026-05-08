@@ -2,26 +2,11 @@
   <section class="container-page py-14">
     <div class="max-w-3xl">
       <p class="text-sm font-semibold uppercase tracking-wide text-brand-green">
-        For software testing, form testing, and educational use only.
+        {{ $t('common.use_only') }}
       </p>
-      <h1 class="mt-4 text-4xl font-bold text-brand-ink">Privacy Policy</h1>
+      <h1 class="mt-4 text-4xl font-bold text-brand-ink">{{ $t('legal.privacy.title') }}</h1>
       <div class="mt-8 space-y-6 text-base leading-7 text-slate-600">
-        <p>
-          GlobalAddressHub provides generated address sample data for software testing, form testing, QA, and
-          educational use only. The frontend does not ask visitors to submit personal address data.
-        </p>
-        <p>
-          Server logs may record basic technical information such as request time, browser type, and approximate
-          network information for reliability and abuse prevention.
-        </p>
-        <p>
-          Google Analytics and Google AdSense may use Cookie technology when enabled on this site. These Cookies can
-          help measure traffic, improve page quality, support advertising operations, and maintain site reliability.
-          Visitors can manage Cookies through their browser settings.
-        </p>
-        <p>
-          Contact us through the contact page for privacy questions about this tool.
-        </p>
+        <p v-for="paragraph in paragraphs" :key="paragraph">{{ paragraph }}</p>
       </div>
     </div>
   </section>
@@ -29,17 +14,20 @@
 
 <script setup lang="ts">
 const config = useRuntimeConfig()
+const { t, locale } = useI18n()
+const localePath = useLocalePath()
 const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
+const paragraphs = computed(() => [0, 1, 2, 3].map((index) => t(`legal.privacy.body.${index}`)))
 
-useHead({
-  title: 'Privacy Policy',
+useHead(() => ({
+  title: t('legal.privacy.title'),
+  htmlAttrs: { lang: locale.value === 'zh' ? 'zh-CN' : 'en' },
   meta: [
     {
       name: 'description',
-      content:
-        'Privacy Policy for GlobalAddressHub, an address sample generator for software testing and educational use only.'
+      content: t('legal.privacy.description')
     }
   ],
-  link: [{ rel: 'canonical', href: `${siteUrl}/privacy-policy` }]
-})
+  link: [{ rel: 'canonical', href: `${siteUrl}${localePath('/privacy-policy')}` }]
+}))
 </script>

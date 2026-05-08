@@ -4,7 +4,7 @@
       <div class="container-page grid gap-8 py-12 lg:grid-cols-[1.15fr_0.72fr_1.02fr] lg:items-start lg:py-16">
         <div>
           <p class="text-sm font-semibold uppercase tracking-wide text-brand-green">
-            For software testing, form testing, and educational use only.
+            {{ $t('common.use_only') }}
           </p>
           <h1 class="mt-4 text-4xl font-bold tracking-normal text-brand-ink lg:text-5xl">{{ page.h1 }}</h1>
           <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">{{ page.heroCopy }}</p>
@@ -13,7 +13,7 @@
               v-for="country in countryOptions"
               :key="country.code"
               class="btn-secondary"
-              :to="country.slug"
+              :to="localePath(country.slug)"
             >
               {{ country.name }}
             </NuxtLink>
@@ -35,12 +35,11 @@
     </section>
 
     <SeoContent :title="page.seoTitle" :paragraphs="page.seoBody" />
-    <FAQSection :items="page.faq" :title="`${page.name} Address Generator FAQ`" />
+    <FAQSection :items="page.faq" :title="$t('countryPages.faqTitle', { country: page.name })" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { countryOptions } from '~/data/country-pages'
 import type { AddressResult, CountryPageContent } from '~/types/address'
 
 const props = defineProps<{
@@ -48,34 +47,38 @@ const props = defineProps<{
 }>()
 
 const address = ref<AddressResult | null>(null)
-const generatorRef = ref<any>(null)
+const generatorRef = ref<{ generate: () => Promise<void> } | null>(null)
+const config = useRuntimeConfig()
+const { locale } = useI18n()
+const localePath = useLocalePath()
+const { localizedCountryOptions, localizedCountryPage } = useCountryContent()
+
+const page = localizedCountryPage(props.page)
+const countryOptions = localizedCountryOptions
+const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
+const canonical = computed(() => `${siteUrl}${localePath(props.page.slug)}`)
 
 const handleRefresh = () => {
-  if (generatorRef.value) {
-    generatorRef.value.generate()
-  }
+  generatorRef.value?.generate()
 }
 
-const config = useRuntimeConfig()
-const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
-const canonical = `${siteUrl}${props.page.slug}`
-
-useHead({
-  title: props.page.title,
+useHead(() => ({
+  title: page.value.title,
   meta: [
-    { name: 'description', content: props.page.description },
-    { property: 'og:title', content: props.page.title },
-    { property: 'og:description', content: props.page.description },
-    { property: 'og:url', content: canonical }
+    { name: 'description', content: page.value.description },
+    { property: 'og:title', content: page.value.title },
+    { property: 'og:description', content: page.value.description },
+    { property: 'og:url', content: canonical.value }
   ],
-  link: [{ rel: 'canonical', href: canonical }],
+  htmlAttrs: { lang: locale.value === 'zh' ? 'zh-CN' : 'en' },
+  link: [{ rel: 'canonical', href: canonical.value }],
   script: [
     {
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: props.page.faq.map((item) => ({
+        mainEntity: page.value.faq.map((item) => ({
           '@type': 'Question',
           name: item.question,
           acceptedAnswer: {
@@ -86,5 +89,5 @@ useHead({
       })
     }
   ]
-})
+}))
 </script>

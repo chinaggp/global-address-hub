@@ -49,6 +49,7 @@ function backendMessage(error: unknown): string {
 
 export function useAddressApi() {
   const config = useRuntimeConfig()
+  const { locale } = useI18n()
   const apiBaseUrl = String(config.public.apiBaseUrl || 'http://localhost:8080').replace(/\/$/, '')
 
   async function request<T>(path: string): Promise<T> {
@@ -62,12 +63,14 @@ export function useAddressApi() {
   }
 
   async function getCountries(): Promise<CountryOption[]> {
-    const payload = await request<unknown>('/api/countries')
+    const params = new URLSearchParams({ locale: locale.value })
+    const payload = await request<unknown>(`/api/countries?${params.toString()}`)
     return normalizeList<CountryOption>(payload, 'countries')
   }
 
   async function getRegions(country: string): Promise<RegionOption[]> {
-    const payload = await request<unknown>(`/api/regions?country=${encodeURIComponent(country)}`)
+    const params = new URLSearchParams({ country, locale: locale.value })
+    const payload = await request<unknown>(`/api/regions?${params.toString()}`)
     return normalizeList<RegionOption>(payload, 'regions')
   }
 

@@ -3,7 +3,7 @@
     <div class="max-w-3xl">
       <h2 class="text-2xl font-bold text-brand-ink">{{ title }}</h2>
       <p class="mt-3 text-slate-600">
-        Answers focus on address formats, field meaning, test usage, copy actions, and sample data scope.
+        {{ $t('faq_section.copy') }}
       </p>
     </div>
     <div class="mt-8 grid gap-4 md:grid-cols-2">

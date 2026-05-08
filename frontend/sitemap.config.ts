@@ -1,5 +1,5 @@
 export default {
-  siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://globaladdresshub.com',
+  siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://addressgeneration.com',
   urls: [
     '/',
     '/us-address-generator',

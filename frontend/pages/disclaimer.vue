@@ -2,22 +2,11 @@
   <section class="container-page py-14">
     <div class="max-w-3xl">
       <p class="text-sm font-semibold uppercase tracking-wide text-brand-green">
-        For software testing, form testing, and educational use only.
+        {{ $t('common.use_only') }}
       </p>
-      <h1 class="mt-4 text-4xl font-bold text-brand-ink">Disclaimer</h1>
+      <h1 class="mt-4 text-4xl font-bold text-brand-ink">{{ $t('legal.disclaimer.title') }}</h1>
       <div class="mt-8 space-y-6 text-base leading-7 text-slate-600">
-        <p>
-          GlobalAddressHub generates sample address data to help with software testing, form testing, QA, and
-          educational demos.
-        </p>
-        <p>
-          Generated addresses are algorithmic or sample data. They are not verified location records and do not
-          represent a real person.
-        </p>
-        <p>
-          Field formats may vary by backend data quality and country rules. Always validate your production forms
-          against your own business requirements.
-        </p>
+        <p v-for="paragraph in paragraphs" :key="paragraph">{{ paragraph }}</p>
       </div>
     </div>
   </section>
@@ -25,17 +14,20 @@
 
 <script setup lang="ts">
 const config = useRuntimeConfig()
+const { t, locale } = useI18n()
+const localePath = useLocalePath()
 const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
+const paragraphs = computed(() => [0, 1, 2].map((index) => t(`legal.disclaimer.body.${index}`)))
 
-useHead({
-  title: 'Disclaimer',
+useHead(() => ({
+  title: t('legal.disclaimer.title'),
+  htmlAttrs: { lang: locale.value === 'zh' ? 'zh-CN' : 'en' },
   meta: [
     {
       name: 'description',
-      content:
-        'Disclaimer for GlobalAddressHub generated address sample data for software testing and educational use only.'
+      content: t('legal.disclaimer.description')
     }
   ],
-  link: [{ rel: 'canonical', href: `${siteUrl}/disclaimer` }]
-})
+  link: [{ rel: 'canonical', href: `${siteUrl}${localePath('/disclaimer')}` }]
+}))
 </script>

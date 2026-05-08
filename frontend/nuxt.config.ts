@@ -1,4 +1,4 @@
-const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://globaladdresshub.com'
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://addressgeneration.com'
 
 const routes = [
   '/',
@@ -47,7 +47,6 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      htmlAttrs: { lang: 'en' },
       titleTemplate: '%s | GlobalAddressHub',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -65,7 +64,11 @@ export default defineNuxtConfig({
             'GlobalAddressHub provides address sample data for software testing, form testing, QA, and educational use only.'
         }
       ],
-      link: [{ rel: 'canonical', href: siteUrl }]
+      link: [
+        { rel: 'canonical', href: siteUrl },
+        { rel: 'icon', type: 'image/png', href: '/fav.png' },
+        { rel: 'apple-touch-icon', href: '/fav.png' }
+      ]
     }
   },
   sitemap: {

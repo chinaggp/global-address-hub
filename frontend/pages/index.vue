@@ -7,7 +7,7 @@
       <div class="container-page relative grid gap-8 py-8 lg:grid-cols-[1.15fr_0.72fr_1.02fr] lg:items-start">
         <div class="pt-1 lg:pt-8">
           <p class="inline-flex rounded-full bg-blue-50 px-5 py-2 text-sm font-semibold text-brand-blue">
-            100% Free · No Sign Up · Instant Copy
+            {{ $t('home.badge') }}
           </p>
           <h1 class="mt-8 max-w-3xl text-4xl font-extrabold leading-tight tracking-normal text-brand-ink lg:text-5xl">
             {{ $t('welcome') }}
@@ -16,7 +16,7 @@
             {{ $t('subtitle') }}
           </p>
           <ul class="mt-7 space-y-4 text-sm font-medium text-brand-ink">
-            <li v-for="(benefit, key) in benefits" :key="key" class="flex items-center gap-3">
+            <li v-for="key in benefitKeys" :key="key" class="flex items-center gap-3">
               <span class="flex h-4 w-4 items-center justify-center rounded-full bg-brand-blue text-[10px] text-white">✓</span>
               {{ $t(`features.${key}`) }}
             </li>
@@ -37,29 +37,28 @@
     <section class="bg-brand-surface py-4">
       <div class="container-page grid gap-4 lg:grid-cols-[1fr_1.02fr]">
         <article class="card p-6">
-          <h2 class="text-lg font-bold text-brand-ink">About Our Address Generator</h2>
+          <h2 class="text-lg font-bold text-brand-ink">{{ $t('home.about.title') }}</h2>
           <p class="mt-4 max-w-3xl text-sm leading-6 text-slate-700">
-            Our random address generator provides real-looking addresses for software testing, form filling, account
-            registration, and more. All addresses are algorithmically generated and do not belong to any real person.
+            {{ $t('home.about.copy') }}
           </p>
           <div class="mt-4 flex flex-wrap gap-3">
             <NuxtLink
               v-for="country in countryOptions.slice(0, 5)"
               :key="country.code"
               class="inline-flex items-center gap-2 rounded-md border border-brand-border bg-white px-3 py-1.5 text-sm text-brand-ink"
-              :to="country.slug"
+              :to="localePath(country.slug)"
             >
               <span>{{ flagMap[country.code] }}</span>
               {{ country.name }}
             </NuxtLink>
           </div>
-          <NuxtLink class="mt-5 inline-flex text-sm font-semibold text-brand-blue" to="/us-address-generator">
-            View all countries →
+          <NuxtLink class="mt-5 inline-flex text-sm font-semibold text-brand-blue" :to="localePath('/us-address-generator')">
+            {{ $t('home.about.view_all') }}
           </NuxtLink>
         </article>
 
         <article id="faq" class="card p-6">
-          <h2 class="text-lg font-bold text-brand-ink">Frequently Asked Questions</h2>
+          <h2 class="text-lg font-bold text-brand-ink">{{ $t('home.faq.title') }}</h2>
           <div class="mt-4 overflow-hidden rounded-lg border border-brand-border">
             <details v-for="item in faqItems" :key="item.question" class="group border-b border-brand-border last:border-b-0">
               <summary class="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-sm font-bold text-brand-ink">
@@ -76,31 +75,26 @@
 </template>
 
 <script setup lang="ts">
-import { countryOptions } from '~/data/country-pages'
-import type { AddressResult, FaqItem } from '~/types/address'
+import type { AddressResult, CountryCode, FaqItem } from '~/types/address'
 
 const address = ref<AddressResult | null>(null)
-const generatorRef = ref<any>(null)
+const generatorRef = ref<{ generate: () => Promise<void> } | null>(null)
 const config = useRuntimeConfig()
+const { t, locale } = useI18n()
+const localePath = useLocalePath()
+const { localizedCountryOptions } = useCountryContent()
 const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
 
-const handleRefresh = () => {
-  console.log('handleRefresh clicked, generatorRef:', generatorRef.value)
-  if (generatorRef.value && typeof generatorRef.value.generate === 'function') {
-    generatorRef.value.generate()
-  } else {
-    console.error('generate method not found on generatorRef')
-  }
-}
+const countryOptions = localizedCountryOptions
+const benefitKeys = ['format', 'phone', 'zip', 'copy']
+const faqItems = computed<FaqItem[]>(() =>
+  [0, 1, 2].map((index) => ({
+    question: t(`home.faq.items.${index}.question`),
+    answer: t(`home.faq.items.${index}.answer`)
+  }))
+)
 
-const benefits = {
-  format: 'Real address format',
-  phone: 'Phone number included',
-  zip: 'ZIP / Postal code valid',
-  copy: 'One-click copy'
-}
-
-const flagMap: Record<string, string> = {
+const flagMap: Record<CountryCode, string> = {
   US: '🇺🇸',
   JP: '🇯🇵',
   UK: '🇬🇧',
@@ -110,46 +104,33 @@ const flagMap: Record<string, string> = {
   NG: '🇳🇬'
 }
 
-const faqItems: FaqItem[] = [
-  {
-    question: 'Can I use these addresses for account registration?',
-    answer:
-      'Use them for testing and demos only. They are generated samples, not verified addresses for real account ownership.'
-  },
-  {
-    question: 'Are these real addresses?',
-    answer: 'No. The output is formatted to look realistic, but it is generated sample data for reference and QA workflows.'
-  },
-  {
-    question: 'Is this tool free to use?',
-    answer: 'Yes. The generator is free to use and does not require sign up for the core copy workflow.'
-  }
-]
+const handleRefresh = () => {
+  generatorRef.value?.generate()
+}
 
-useHead({
-  title: 'Random Address Generator for Software Testing',
+useHead(() => ({
+  title: t('home.meta.title'),
+  htmlAttrs: { lang: locale.value === 'zh' ? 'zh-CN' : 'en' },
   meta: [
     {
       name: 'description',
-      content:
-        'Generate random address sample data for software testing, form testing, QA, and educational use only.'
+      content: t('home.meta.description')
     },
-    { property: 'og:title', content: 'Random Address Generator for Software Testing' },
+    { property: 'og:title', content: t('home.meta.title') },
     {
       property: 'og:description',
-      content:
-        'Generate address sample data for software testing, form testing, QA, and educational use only.'
+      content: t('home.meta.og_description')
     },
-    { property: 'og:url', content: siteUrl }
+    { property: 'og:url', content: `${siteUrl}${localePath('/')}` }
   ],
-  link: [{ rel: 'canonical', href: siteUrl }],
+  link: [{ rel: 'canonical', href: `${siteUrl}${localePath('/')}` }],
   script: [
     {
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: faqItems.map((item) => ({
+        mainEntity: faqItems.value.map((item) => ({
           '@type': 'Question',
           name: item.question,
           acceptedAnswer: {
@@ -160,7 +141,7 @@ useHead({
       })
     }
   ]
-})
+}))
 </script>
 
 <style scoped>

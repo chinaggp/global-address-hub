@@ -43,10 +43,15 @@ yarn-error.log*
 .output/
 dist/
 .env
+.env.*
+!.env.*.example
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Local generated assets
+ChatGPT Image *.png
 
 # Docker
 .docker-tmp/

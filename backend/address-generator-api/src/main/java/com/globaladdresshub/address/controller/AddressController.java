@@ -31,13 +31,20 @@ public class AddressController {
     }
 
     @GetMapping("/api/countries")
-    public ResponseEntity<List<CountryOption>> countries() {
-        return ResponseEntity.ok().cacheControl(PUBLIC_CACHE).body(countryRuleService.countries());
+    public ResponseEntity<List<CountryOption>> countries(
+            @RequestParam(required = false) String locale,
+            @RequestParam(required = false) String lang
+    ) {
+        return ResponseEntity.ok().cacheControl(PUBLIC_CACHE).body(countryRuleService.countries(locale, lang));
     }
 
     @GetMapping("/api/regions")
-    public ResponseEntity<List<RegionOption>> regions(@RequestParam String country) {
-        return ResponseEntity.ok().cacheControl(PUBLIC_CACHE).body(countryRuleService.regions(country));
+    public ResponseEntity<List<RegionOption>> regions(
+            @RequestParam String country,
+            @RequestParam(required = false) String locale,
+            @RequestParam(required = false) String lang
+    ) {
+        return ResponseEntity.ok().cacheControl(PUBLIC_CACHE).body(countryRuleService.regions(country, locale, lang));
     }
 
     @GetMapping("/api/address/random")

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://globaladdresshub.com/sitemap.xml
+Sitemap: https://addressgeneration.com/sitemap.xml

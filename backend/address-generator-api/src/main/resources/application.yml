@@ -6,6 +6,6 @@ server:
 
 app:
   cors:
-    production-origin: https://globaladdresshub.com
+    allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:http://localhost:3000,http://127.0.0.1:3000}
   rate-limit:
-    random-address-per-minute: 1000
+    random-address-per-minute: ${APP_RATE_LIMIT_RANDOM_ADDRESS_PER_MINUTE:1000}

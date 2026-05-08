@@ -13,16 +13,17 @@ const props = defineProps<{
 
 const copied = ref(false)
 const failed = ref(false)
+const { t } = useI18n()
 let resetTimer: number | undefined
 
 const statusText = computed(() => {
   if (copied.value) {
-    return 'Copied'
+    return t('copy.copied')
   }
   if (failed.value) {
-    return 'Copy failed'
+    return t('copy.failed')
   }
-  return props.label || 'Copy'
+  return props.label || t('copy.default')
 })
 
 const buttonClass = computed(() => (props.variant === 'success' ? 'btn-success' : 'btn-secondary'))
