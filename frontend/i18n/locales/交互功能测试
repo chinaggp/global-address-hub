@@ -1,0 +1,22 @@
+{
+  "welcome": "各国随机地址生成器",
+  "subtitle": "为美国、日本、英国、加拿大、澳大利亚等国家生成随机、真实的模拟地址。",
+  "features": {
+    "format": "真实地址格式",
+    "phone": "包含电话号码",
+    "zip": "邮政编码有效",
+    "copy": "一键复制"
+  },
+  "generator": {
+    "select_country": "1. 选择国家",
+    "select_region": "2. 选择{region} (可选)",
+    "btn_generate": "生成地址",
+    "btn_generating": "生成中...",
+    "disclaimer": "所有数据均为随机生成，仅供参考。"
+  },
+  "nav": {
+    "home": "首页",
+    "countries": "国家",
+    "about": "关于"
+  }
+}

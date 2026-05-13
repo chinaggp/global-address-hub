@@ -1,0 +1,34 @@
+{
+  "country": "Japan",
+  "countryCode": "JP",
+  "firstNames": ["Haruto", "Yui", "Ren", "Aoi", "Sora"],
+  "lastNames": ["Sato", "Suzuki", "Takahashi", "Tanaka", "Watanabe"],
+  "streetNames": ["Chuo Dori", "Sakura Dori", "Aoba Dori", "Ekimae Dori", "Honmachi"],
+  "regions": [
+    {"code": "13", "name": "Tokyo", "phonePrefixes": ["03", "042", "049"], "cities": [
+      {"name": "Chiyoda", "postalCodes": ["100-0001", "100-0005"]},
+      {"name": "Shinjuku", "postalCodes": ["160-0022", "160-0023"]},
+      {"name": "Setagaya", "postalCodes": ["154-0017", "156-0052"]}
+    ]},
+    {"code": "27", "name": "Osaka", "phonePrefixes": ["06", "072", "0725"], "cities": [
+      {"name": "Kita", "postalCodes": ["530-0001", "530-0012"]},
+      {"name": "Naniwa", "postalCodes": ["556-0011", "556-0016"]},
+      {"name": "Sakai", "postalCodes": ["590-0078", "590-0946"]}
+    ]},
+    {"code": "14", "name": "Kanagawa", "phonePrefixes": ["045", "044", "046"], "cities": [
+      {"name": "Yokohama", "postalCodes": ["231-0015", "220-0011"]},
+      {"name": "Kawasaki", "postalCodes": ["210-0005", "211-0004"]},
+      {"name": "Fujisawa", "postalCodes": ["251-0052", "251-0047"]}
+    ]},
+    {"code": "23", "name": "Aichi", "phonePrefixes": ["052", "0564", "0586"], "cities": [
+      {"name": "Nagoya", "postalCodes": ["460-0008", "450-0002"]},
+      {"name": "Okazaki", "postalCodes": ["444-0045", "444-0860"]},
+      {"name": "Ichinomiya", "postalCodes": ["491-0859", "491-0912"]}
+    ]},
+    {"code": "40", "name": "Fukuoka", "phonePrefixes": ["092", "093", "0942"], "cities": [
+      {"name": "Hakata", "postalCodes": ["812-0011", "812-0013"]},
+      {"name": "Kitakyushu", "postalCodes": ["802-0001", "803-0813"]},
+      {"name": "Kurume", "postalCodes": ["830-0032", "830-0017"]}
+    ]}
+  ]
+}

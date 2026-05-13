@@ -1,0 +1,34 @@
+{
+  "country": "Canada",
+  "countryCode": "CA",
+  "firstNames": ["Liam", "Emma", "Noah", "Olivia", "Ethan"],
+  "lastNames": ["Campbell", "Martin", "Roy", "Clark", "Anderson"],
+  "streetNames": ["King Street", "Queen Street", "Maple Road", "River Avenue", "Harbour Drive"],
+  "regions": [
+    {"code": "ON", "name": "Ontario", "phonePrefixes": ["416", "613", "905"], "cities": [
+      {"name": "Toronto", "postalCodes": ["M5V 2T6", "M4B 1B3"]},
+      {"name": "Ottawa", "postalCodes": ["K1P 1J1", "K2P 0B8"]},
+      {"name": "Hamilton", "postalCodes": ["L8P 1A1", "L9C 2Z5"]}
+    ]},
+    {"code": "QC", "name": "Quebec", "phonePrefixes": ["514", "418", "450"], "cities": [
+      {"name": "Montreal", "postalCodes": ["H3B 2Y5", "H2X 1Y4"]},
+      {"name": "Quebec City", "postalCodes": ["G1R 4P5", "G1K 3X2"]},
+      {"name": "Laval", "postalCodes": ["H7N 2J4", "H7S 1M9"]}
+    ]},
+    {"code": "BC", "name": "British Columbia", "phonePrefixes": ["604", "250", "778"], "cities": [
+      {"name": "Vancouver", "postalCodes": ["V6B 1A1", "V5K 0A1"]},
+      {"name": "Victoria", "postalCodes": ["V8W 1P6", "V8V 3K4"]},
+      {"name": "Kelowna", "postalCodes": ["V1Y 6N6", "V1X 2B5"]}
+    ]},
+    {"code": "AB", "name": "Alberta", "phonePrefixes": ["403", "587", "780"], "cities": [
+      {"name": "Calgary", "postalCodes": ["T2P 1J9", "T3A 5K8"]},
+      {"name": "Edmonton", "postalCodes": ["T5J 0N3", "T6E 2A1"]},
+      {"name": "Red Deer", "postalCodes": ["T4N 1X2", "T4R 2N7"]}
+    ]},
+    {"code": "NS", "name": "Nova Scotia", "phonePrefixes": ["902", "782"], "cities": [
+      {"name": "Halifax", "postalCodes": ["B3J 3K5", "B3H 1Y6"]},
+      {"name": "Dartmouth", "postalCodes": ["B2Y 1H1", "B2W 2R7"]},
+      {"name": "Sydney", "postalCodes": ["B1P 5T3", "B1S 1A8"]}
+    ]}
+  ]
+}
