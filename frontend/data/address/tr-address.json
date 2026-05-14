@@ -1,0 +1,34 @@
+{
+  "country": "Turkey",
+  "countryCode": "TR",
+  "firstNames": ["Emir", "Zeynep", "Mert", "Elif", "Deniz"],
+  "lastNames": ["Yilmaz", "Kaya", "Demir", "Sahin", "Celik"],
+  "streetNames": ["Ataturk Caddesi", "Cumhuriyet Sokak", "Istiklal Caddesi", "Gunes Sokak", "Lale Caddesi"],
+  "regions": [
+    {"code": "34", "name": "Istanbul", "phonePrefixes": ["212", "216"], "cities": [
+      {"name": "Kadikoy", "postalCodes": ["34710", "34714"]},
+      {"name": "Besiktas", "postalCodes": ["34340", "34349"]},
+      {"name": "Fatih", "postalCodes": ["34080", "34104"]}
+    ]},
+    {"code": "06", "name": "Ankara", "phonePrefixes": ["312"], "cities": [
+      {"name": "Cankaya", "postalCodes": ["06420", "06550"]},
+      {"name": "Kecioren", "postalCodes": ["06010", "06220"]},
+      {"name": "Yenimahalle", "postalCodes": ["06170", "06370"]}
+    ]},
+    {"code": "35", "name": "Izmir", "phonePrefixes": ["232"], "cities": [
+      {"name": "Konak", "postalCodes": ["35250", "35260"]},
+      {"name": "Bornova", "postalCodes": ["35030", "35100"]},
+      {"name": "Karsiyaka", "postalCodes": ["35550", "35600"]}
+    ]},
+    {"code": "16", "name": "Bursa", "phonePrefixes": ["224"], "cities": [
+      {"name": "Osmangazi", "postalCodes": ["16010", "16220"]},
+      {"name": "Nilufer", "postalCodes": ["16120", "16285"]},
+      {"name": "Yildirim", "postalCodes": ["16270", "16310"]}
+    ]},
+    {"code": "07", "name": "Antalya", "phonePrefixes": ["242"], "cities": [
+      {"name": "Muratpasa", "postalCodes": ["07010", "07100"]},
+      {"name": "Konyaalti", "postalCodes": ["07070", "07130"]},
+      {"name": "Alanya", "postalCodes": ["07400", "07460"]}
+    ]}
+  ]
+}

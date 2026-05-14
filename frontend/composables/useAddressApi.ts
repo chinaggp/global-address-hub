@@ -1,90 +1,63 @@
 import type { AddressResult, CountryOption, RegionOption } from '~/types/address'
 
-function normalizeList<T>(payload: unknown, key: string): T[] {
-  if (Array.isArray(payload)) {
-    return payload as T[]
-  }
-
-  if (payload && typeof payload === 'object') {
-    const record = payload as Record<string, unknown>
-    if (Array.isArray(record[key])) {
-      return record[key] as T[]
-    }
-    if (Array.isArray(record.data)) {
-      return record.data as T[]
-    }
-  }
-
-  return []
-}
-
-function errorMessage(status?: number): string {
-  if (status === 400) {
-    return 'The selected country or region is not supported yet.'
-  }
-  if (status === 429) {
-    return 'Too many requests. Please wait a moment and try again.'
-  }
-  if (status && status >= 500) {
-    return 'The address service is temporarily unavailable.'
-  }
-  return 'Unable to reach the address service. Please try again later.'
-}
-
-function backendMessage(error: unknown): string {
-  const payload =
-    (error as { data?: unknown }).data
-    || (error as { response?: { _data?: unknown; data?: unknown } }).response?._data
-    || (error as { response?: { data?: unknown } }).response?.data
-
-  if (payload && typeof payload === 'object') {
-    const message = (payload as Record<string, unknown>).message
-    if (typeof message === 'string' && message.trim()) {
-      return message
-    }
-  }
-
-  return ''
-}
-
 export function useAddressApi() {
-  const config = useRuntimeConfig()
   const { locale } = useI18n()
-  const apiBaseUrl = String(config.public.apiBaseUrl || 'http://localhost:8080').replace(/\/$/, '')
+  const { getCountryList, getRegionList, countryData } = useCountryService()
+  const { generate } = useAddressGenerator()
 
-  async function request<T>(path: string): Promise<T> {
-    try {
-      return await $fetch<T>(`${apiBaseUrl}${path}`) as T
-    } catch (error) {
-      const status = (error as { status?: number; response?: { status?: number } }).status
-        || (error as { response?: { status?: number } }).response?.status
-      throw new Error(backendMessage(error) || errorMessage(status))
+  const errorMessageMap: Record<string, string> = {
+    'Unsupported country code': 'The selected country is not supported yet.',
+    'Unsupported region:': 'The selected region is not available for this country.',
+    'Region not found': 'The selected region is not available.',
+  }
+
+  function resolveError(error: unknown): string {
+    if (error instanceof Error) {
+      return error.message
     }
+    return 'Unable to generate address. Please try again.'
+  }
+
+  function wrapError(code: string, fallback: string): string {
+    for (const [key, message] of Object.entries(errorMessageMap)) {
+      if (code.includes(key)) {
+        return message
+      }
+    }
+    return fallback
   }
 
   async function getCountries(): Promise<CountryOption[]> {
-    const params = new URLSearchParams({ locale: locale.value })
-    const payload = await request<unknown>(`/api/countries?${params.toString()}`)
-    return normalizeList<CountryOption>(payload, 'countries')
+    try {
+      return getCountryList()
+    } catch {
+      return []
+    }
   }
 
   async function getRegions(country: string): Promise<RegionOption[]> {
-    const params = new URLSearchParams({ country, locale: locale.value })
-    const payload = await request<unknown>(`/api/regions?${params.toString()}`)
-    return normalizeList<RegionOption>(payload, 'regions')
+    try {
+      return getRegionList(country)
+    } catch {
+      return []
+    }
   }
 
   async function getRandomAddress(country: string, region?: string): Promise<AddressResult> {
-    const params = new URLSearchParams({ country })
-    if (region) {
-      params.set('region', region)
+    try {
+      const data = countryData(country)
+      return generate(data, region || undefined)
+    } catch (error) {
+      const raw = resolveError(error)
+      throw new Error(wrapError(raw, raw))
     }
-    return await request<AddressResult>(`/api/address/random?${params.toString()}`)
   }
+
+  void locale
 
   return {
     getCountries,
     getRegions,
-    getRandomAddress
+    getRandomAddress,
   }
 }

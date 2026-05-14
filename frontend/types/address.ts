@@ -14,7 +14,9 @@ export interface RegionOption {
 export interface AddressResult {
   fullName?: string
   country: string
+  countryCode?: string
   region?: string
+  regionCode?: string
   regionName?: string
   city?: string
   district?: string
@@ -41,4 +43,26 @@ export interface CountryPageContent {
   faq: FaqItem[]
   seoTitle: string
   seoBody: string[]
+}
+
+export interface CityAddressData {
+  name: string
+  postalCodes: string[]
+  areaCodes?: string[]
+}
+
+export interface RegionAddressData {
+  code: string
+  name: string
+  phonePrefixes: string[]
+  cities: CityAddressData[]
+}
+
+export interface CountryAddressData {
+  country: string
+  countryCode: string
+  firstNames: string[]
+  lastNames: string[]
+  streetNames: string[]
+  regions: RegionAddressData[]
 }

@@ -1,0 +1,34 @@
+{
+  "country": "United Kingdom",
+  "countryCode": "UK",
+  "firstNames": ["Oliver", "Amelia", "George", "Isla", "Harry"],
+  "lastNames": ["Smith", "Jones", "Taylor", "Brown", "Wilson"],
+  "streetNames": ["High Street", "Station Road", "Church Lane", "Victoria Road", "King Street"],
+  "regions": [
+    {"code": "ENG", "name": "England", "phonePrefixes": ["020", "0161", "0121"], "cities": [
+      {"name": "London", "postalCodes": ["SW1A 1AA", "EC1A 1BB"]},
+      {"name": "Manchester", "postalCodes": ["M1 1AE", "M2 5DB"]},
+      {"name": "Birmingham", "postalCodes": ["B1 1AA", "B2 4QA"]}
+    ]},
+    {"code": "SCT", "name": "Scotland", "phonePrefixes": ["0131", "0141", "01224"], "cities": [
+      {"name": "Edinburgh", "postalCodes": ["EH1 1YZ", "EH2 2AF"]},
+      {"name": "Glasgow", "postalCodes": ["G1 1AA", "G2 3BZ"]},
+      {"name": "Aberdeen", "postalCodes": ["AB10 1AB", "AB11 5RG"]}
+    ]},
+    {"code": "WLS", "name": "Wales", "phonePrefixes": ["029", "01792", "01248"], "cities": [
+      {"name": "Cardiff", "postalCodes": ["CF10 1EP", "CF11 9LJ"]},
+      {"name": "Swansea", "postalCodes": ["SA1 1NW", "SA2 8PP"]},
+      {"name": "Bangor", "postalCodes": ["LL57 1DT", "LL57 2DG"]}
+    ]},
+    {"code": "NIR", "name": "Northern Ireland", "phonePrefixes": ["028"], "cities": [
+      {"name": "Belfast", "postalCodes": ["BT1 1AA", "BT2 7BA"]},
+      {"name": "Derry", "postalCodes": ["BT48 6DQ", "BT47 6AE"]},
+      {"name": "Lisburn", "postalCodes": ["BT27 4RL", "BT28 1BN"]}
+    ]},
+    {"code": "CNL", "name": "Cornwall", "phonePrefixes": ["01872", "01736", "01209"], "cities": [
+      {"name": "Truro", "postalCodes": ["TR1 2AA", "TR1 3XL"]},
+      {"name": "Penzance", "postalCodes": ["TR18 2SA", "TR18 4AB"]},
+      {"name": "Redruth", "postalCodes": ["TR15 2AB", "TR15 3AQ"]}
+    ]}
+  ]
+}
