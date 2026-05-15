@@ -55,7 +55,7 @@ const { localizedCountryOptions, localizedCountryPage } = useCountryContent()
 
 const page = localizedCountryPage(props.page)
 const countryOptions = localizedCountryOptions
-const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
+const siteUrl = String(config.public.siteUrl || 'https://addressgeneration.com').replace(/\/$/, '')
 const canonical = computed(() => `${siteUrl}${localePath(props.page.slug)}`)
 
 const handleRefresh = () => {

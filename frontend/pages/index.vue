@@ -83,7 +83,7 @@ const config = useRuntimeConfig()
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { localizedCountryOptions } = useCountryContent()
-const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
+const siteUrl = String(config.public.siteUrl || 'https://addressgeneration.com').replace(/\/$/, '')
 
 const countryOptions = localizedCountryOptions
 const benefitKeys = ['format', 'phone', 'zip', 'copy']

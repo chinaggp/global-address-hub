@@ -9,7 +9,7 @@
         <p v-for="paragraph in paragraphs" :key="paragraph">{{ paragraph }}</p>
         <p>
           {{ $t('legal.contact.email_label') }}
-          <a class="font-semibold text-brand-blue" href="mailto:contact@globaladdresshub.com">contact@globaladdresshub.com</a>
+          <a class="font-semibold text-brand-blue" href="mailto:samw32368@gmail.com">samw32368@gmail.com</a>
         </p>
       </div>
     </div>
@@ -20,7 +20,7 @@
 const config = useRuntimeConfig()
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
-const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
+const siteUrl = String(config.public.siteUrl || 'https://addressgeneration.com').replace(/\/$/, '')
 const paragraphs = computed(() => [t('legal.contact.body.0'), t('legal.contact.body.1')])
 
 useHead(() => ({

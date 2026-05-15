@@ -16,7 +16,7 @@
 const config = useRuntimeConfig()
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
-const siteUrl = String(config.public.siteUrl || 'https://globaladdresshub.com').replace(/\/$/, '')
+const siteUrl = String(config.public.siteUrl || 'https://addressgeneration.com').replace(/\/$/, '')
 const paragraphs = computed(() => [0, 1, 2].map((index) => t(`legal.terms.body.${index}`)))
 
 useHead(() => ({
