@@ -41,7 +41,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl,
-      googleAnalyticsId: process.env.NUXT_PUBLIC_GOOGLE_ANALYTICS_ID || ''
+      googleAnalyticsId: process.env.NUXT_PUBLIC_GOOGLE_ANALYTICS_ID || 'G-TP1D5PXLFS'
     }
   },
   app: {
@@ -73,6 +73,18 @@ export default defineNuxtConfig({
           async: true,
           src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1616618442863931',
           crossorigin: 'anonymous'
+        },
+        {
+          async: true,
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-TP1D5PXLFS'
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-TP1D5PXLFS');
+          `
         }
       ]
     }
