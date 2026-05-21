@@ -1,9 +1,30 @@
 {
   "country": "United States",
   "countryCode": "US",
-  "firstNames": ["Alex", "Taylor", "Jordan", "Morgan", "Casey"],
-  "lastNames": ["Parker", "Reed", "Bennett", "Hayes", "Coleman"],
-  "streetNames": ["Maple Street", "Oak Avenue", "Cedar Lane", "Lakeview Drive", "Market Street"],
+  "firstNames": [
+    "Alex", "Taylor", "Jordan", "Morgan", "Casey",
+    "Jose", "Maria", "Carlos", "Isabella", "Miguel",
+    "Malik", "Aaliyah", "Darius", "Keisha", "Tyrone",
+    "Ming", "Priya", "Kevin", "Amy", "Raj",
+    "James", "Emma", "Noah", "Olivia", "Liam",
+    "Destiny", "Jaylen", "Brianna", "Connor", "Fatima"
+  ],
+  "lastNames": [
+    "Parker", "Reed", "Bennett", "Hayes", "Coleman",
+    "Johnson", "Williams", "Brown", "Davis", "Miller",
+    "Garcia", "Martinez", "Rodriguez", "Lopez", "Hernandez",
+    "Washington", "Jefferson", "Robinson", "Jackson", "Harris",
+    "Chen", "Kim", "Patel", "Nguyen", "Wong",
+    "Kowalski", "Petrov", "Novak", "Kovacs", "Ivanova"
+  ],
+  "streetNames": [
+    "Maple Street", "Oak Avenue", "Cedar Lane", "Lakeview Drive", "Market Street",
+    "1st Avenue", "5th Street", "3rd Boulevard", "Jefferson Boulevard", "Lincoln Avenue",
+    "Washington Drive", "Roosevelt Road", "Kennedy Way", "Willow Creek Road", "Sunset Boulevard",
+    "River Bend Lane", "Pine Ridge Circle", "Meadow Brook Court", "Highland Place", "Elm Street",
+    "Spring Valley Road", "Blue Ridge Way", "Harbor View Drive", "Chestnut Court", "Riverside Boulevard",
+    "Forest Glen Lane", "Prairie Wind Circle", "Summit Ridge Place", "Birch Tree Way", "Copper Creek Road"
+  ],
   "regions": [
     {"code": "CA", "name": "California", "phonePrefixes": ["213", "415", "619"], "cities": [
       {"name": "Los Angeles", "postalCodes": ["90012", "90015"]},
@@ -29,6 +50,18 @@
       {"name": "Chicago", "postalCodes": ["60601", "60607"]},
       {"name": "Springfield", "postalCodes": ["62701", "62703"]},
       {"name": "Evanston", "postalCodes": ["60201", "60202"]}
+    ]},
+    {"code": "WA", "name": "Washington", "phonePrefixes": ["206", "253", "509"], "cities": [
+      {"name": "Seattle", "postalCodes": ["98101", "98102"]},
+      {"name": "Spokane", "postalCodes": ["99201", "99202"]}
+    ]},
+    {"code": "GA", "name": "Georgia", "phonePrefixes": ["404", "470", "912"], "cities": [
+      {"name": "Atlanta", "postalCodes": ["30301", "30303"]},
+      {"name": "Savannah", "postalCodes": ["31401", "31404"]}
+    ]},
+    {"code": "CO", "name": "Colorado", "phonePrefixes": ["303", "719", "720"], "cities": [
+      {"name": "Denver", "postalCodes": ["80201", "80202"]},
+      {"name": "Colorado Springs", "postalCodes": ["80901", "80903"]}
     ]}
   ]
 }

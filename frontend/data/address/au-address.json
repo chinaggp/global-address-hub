@@ -1,34 +1,112 @@
 {
   "country": "Australia",
   "countryCode": "AU",
-  "firstNames": ["Jack", "Charlotte", "William", "Mia", "Lucas"],
-  "lastNames": ["Williams", "Nguyen", "Walker", "Thompson", "Harris"],
-  "streetNames": ["George Street", "Collins Street", "Park Road", "Beach Avenue", "Station Street"],
+  "firstNames": [
+    "Jack", "Charlotte", "William", "Mia", "Lucas",
+    "Oliver", "James", "Noah", "Ethan", "Benjamin", "Henry",
+    "Emily", "Sophie", "Grace", "Isabella", "Chloe", "Lily",
+    "Wei", "Ravi", "Jin", "Arjun",
+    "Mei", "Priya", "Anh", "Divya",
+    "Alinta", "Jedda", "Jarrah", "Kirra", "Bindi"
+  ],
+  "lastNames": [
+    "Williams", "Nguyen", "Walker", "Thompson", "Harris",
+    "Smith", "Brown", "Jones", "Taylor", "Wilson", "Clark", "Lewis", "Moore",
+    "Murphy", "Kelly", "O'Brien", "Martin",
+    "Chen", "Singh", "Patel", "Kim", "Lee",
+    "Anderson", "Cooper", "Scott", "Reid",
+    "Santos", "Petrov", "Okafor", "Yamamoto"
+  ],
+  "streetNames": [
+    "George Street", "Collins Street", "Park Road", "Beach Avenue", "Station Street",
+    "Pitt Street", "King Street", "Queen Street", "Flinders Street",
+    "Harbour Road", "Pacific Road", "Mountain Road",
+    "Victoria Avenue", "Macquarie Avenue", "Bourke Avenue",
+    "Sunset Drive", "Ocean Drive", "Blue Mountain Drive",
+    "Church Lane", "Olive Lane",
+    "Discovery Way", "Federation Way", "Blue Gum Way",
+    "Wattle Court", "Banksia Court",
+    "Hyde Park Place", "Eucalyptus Place",
+    "Garden Crescent", "Coral Crescent",
+    "Royal Boulevard"
+  ],
   "regions": [
-    {"code": "NSW", "name": "New South Wales", "phonePrefixes": ["2"], "cities": [
-      {"name": "Sydney", "postalCodes": ["2000", "2010"]},
-      {"name": "Newcastle", "postalCodes": ["2300", "2302"]},
-      {"name": "Parramatta", "postalCodes": ["2150", "2151"]}
-    ]},
-    {"code": "VIC", "name": "Victoria", "phonePrefixes": ["3"], "cities": [
-      {"name": "Melbourne", "postalCodes": ["3000", "3004"]},
-      {"name": "Geelong", "postalCodes": ["3220", "3221"]},
-      {"name": "Ballarat", "postalCodes": ["3350", "3352"]}
-    ]},
-    {"code": "QLD", "name": "Queensland", "phonePrefixes": ["7"], "cities": [
-      {"name": "Brisbane", "postalCodes": ["4000", "4006"]},
-      {"name": "Cairns", "postalCodes": ["4870", "4878"]},
-      {"name": "Townsville", "postalCodes": ["4810", "4814"]}
-    ]},
-    {"code": "WA", "name": "Western Australia", "phonePrefixes": ["8"], "cities": [
-      {"name": "Perth", "postalCodes": ["6000", "6005"]},
-      {"name": "Fremantle", "postalCodes": ["6160", "6162"]},
-      {"name": "Bunbury", "postalCodes": ["6230", "6232"]}
-    ]},
-    {"code": "SA", "name": "South Australia", "phonePrefixes": ["8"], "cities": [
-      {"name": "Adelaide", "postalCodes": ["5000", "5006"]},
-      {"name": "Mount Gambier", "postalCodes": ["5290", "5291"]},
-      {"name": "Whyalla", "postalCodes": ["5600", "5608"]}
-    ]}
+    {
+      "code": "NSW",
+      "name": "New South Wales",
+      "phonePrefixes": ["2"],
+      "cities": [
+        {"name": "Sydney", "postalCodes": ["2000", "2010"]},
+        {"name": "Newcastle", "postalCodes": ["2300", "2302"]},
+        {"name": "Parramatta", "postalCodes": ["2150", "2151"]}
+      ]
+    },
+    {
+      "code": "VIC",
+      "name": "Victoria",
+      "phonePrefixes": ["3"],
+      "cities": [
+        {"name": "Melbourne", "postalCodes": ["3000", "3004"]},
+        {"name": "Geelong", "postalCodes": ["3220", "3221"]},
+        {"name": "Ballarat", "postalCodes": ["3350", "3352"]}
+      ]
+    },
+    {
+      "code": "QLD",
+      "name": "Queensland",
+      "phonePrefixes": ["7"],
+      "cities": [
+        {"name": "Brisbane", "postalCodes": ["4000", "4006"]},
+        {"name": "Cairns", "postalCodes": ["4870", "4878"]},
+        {"name": "Townsville", "postalCodes": ["4810", "4814"]}
+      ]
+    },
+    {
+      "code": "WA",
+      "name": "Western Australia",
+      "phonePrefixes": ["8"],
+      "cities": [
+        {"name": "Perth", "postalCodes": ["6000", "6005"]},
+        {"name": "Fremantle", "postalCodes": ["6160", "6162"]},
+        {"name": "Bunbury", "postalCodes": ["6230", "6232"]}
+      ]
+    },
+    {
+      "code": "SA",
+      "name": "South Australia",
+      "phonePrefixes": ["8"],
+      "cities": [
+        {"name": "Adelaide", "postalCodes": ["5000", "5006"]},
+        {"name": "Mount Gambier", "postalCodes": ["5290", "5291"]},
+        {"name": "Whyalla", "postalCodes": ["5600", "5608"]}
+      ]
+    },
+    {
+      "code": "TAS",
+      "name": "Tasmania",
+      "phonePrefixes": ["3"],
+      "cities": [
+        {"name": "Hobart", "postalCodes": ["7000", "7005"]},
+        {"name": "Launceston", "postalCodes": ["7248", "7250"]}
+      ]
+    },
+    {
+      "code": "ACT",
+      "name": "Australian Capital Territory",
+      "phonePrefixes": ["2"],
+      "cities": [
+        {"name": "Canberra", "postalCodes": ["2600", "2601"]},
+        {"name": "Belconnen", "postalCodes": ["2617", "2618"]}
+      ]
+    },
+    {
+      "code": "NT",
+      "name": "Northern Territory",
+      "phonePrefixes": ["8"],
+      "cities": [
+        {"name": "Darwin", "postalCodes": ["0800", "0810"]},
+        {"name": "Alice Springs", "postalCodes": ["0870", "0871"]}
+      ]
+    }
   ]
 }

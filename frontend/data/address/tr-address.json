@@ -1,9 +1,30 @@
 {
   "country": "Turkey",
   "countryCode": "TR",
-  "firstNames": ["Emir", "Zeynep", "Mert", "Elif", "Deniz"],
-  "lastNames": ["Yilmaz", "Kaya", "Demir", "Sahin", "Celik"],
-  "streetNames": ["Ataturk Caddesi", "Cumhuriyet Sokak", "Istiklal Caddesi", "Gunes Sokak", "Lale Caddesi"],
+  "firstNames": [
+    "Emir", "Zeynep", "Mert", "Elif", "Deniz",
+    "Mustafa", "Fatma", "Ahmet", "Ayşe", "Mehmet",
+    "Hatice", "Ali", "Emine", "Hüseyin", "Halime",
+    "Berk", "Selin", "Can", "Aylin", "Burak",
+    "İrem", "Arda", "Buse", "Kaan", "Ceren",
+    "Beritan", "Baran", "Rojda", "Arjin", "Serkan"
+  ],
+  "lastNames": [
+    "Yilmaz", "Kaya", "Demir", "Sahin", "Celik",
+    "Arslan", "Doğan", "Polat", "Öztürk", "Aydın",
+    "Karaca", "Tekin", "Özdemir", "Erdoğan", "Çalışkan",
+    "Şimşek", "Koç", "Bulut", "Özcan", "Yıldız",
+    "Kurt", "Aslan", "Taş", "Korkmaz", "Çetin",
+    "Güneş", "Bozkurt", "Uçar", "Acar", "Akın"
+  ],
+  "streetNames": [
+    "Ataturk Caddesi", "Cumhuriyet Sokak", "Istiklal Caddesi", "Gunes Sokak", "Lale Caddesi",
+    "Atatürk Bulvarı", "Taksim Meydanı", "Bağdat Caddesi", "Beşiktaş Sokak", "Boğaz Yolu",
+    "Çiçek Sokak", "Fatih Sultan Caddesi", "Galata Meydanı", "Harbiye Caddesi", "İnönü Bulvarı",
+    "Kadıköy Sokak", "Kemeraltı Caddesi", "Kiraz Sokak", "Konak Meydanı", "Kurtuluş Caddesi",
+    "Mevlana Bulvarı", "Mithat Paşa Caddesi", "Nilüfer Yolu", "Osmangazi Caddesi", "Pamukkale Sokak",
+    "Rıhtım Caddesi", "Süleyman Demirel Bulvarı", "Tarihi Çarşı Sokak", "Uludağ Yolu", "Vatan Caddesi"
+  ],
   "regions": [
     {"code": "34", "name": "Istanbul", "phonePrefixes": ["212", "216"], "cities": [
       {"name": "Kadikoy", "postalCodes": ["34710", "34714"]},
@@ -29,6 +50,18 @@
       {"name": "Muratpasa", "postalCodes": ["07010", "07100"]},
       {"name": "Konyaalti", "postalCodes": ["07070", "07130"]},
       {"name": "Alanya", "postalCodes": ["07400", "07460"]}
+    ]},
+    {"code": "01", "name": "Adana", "phonePrefixes": ["322"], "cities": [
+      {"name": "Adana", "postalCodes": ["01010", "01030"]},
+      {"name": "Ceyhan", "postalCodes": ["01720", "01750"]}
+    ]},
+    {"code": "55", "name": "Samsun", "phonePrefixes": ["362"], "cities": [
+      {"name": "Samsun", "postalCodes": ["55020", "55060"]},
+      {"name": "Alaçam", "postalCodes": ["55600", "55630"]}
+    ]},
+    {"code": "42", "name": "Konya", "phonePrefixes": ["332"], "cities": [
+      {"name": "Konya", "postalCodes": ["42010", "42040"]},
+      {"name": "Ereğli", "postalCodes": ["42310", "42360"]}
     ]}
   ]
 }

@@ -1,9 +1,31 @@
 {
   "country": "Nigeria",
   "countryCode": "NG",
-  "firstNames": ["Ada", "Chinedu", "Amina", "Tunde", "Ife"],
-  "lastNames": ["Okafor", "Balogun", "Ibrahim", "Eze", "Adebayo"],
-  "streetNames": ["Adeniyi Jones Avenue", "Marina Road", "Independence Way", "Ahmadu Bello Way", "Garden Avenue"],
+  "firstNames": [
+    "Ada", "Chinedu", "Amina", "Tunde", "Ife",
+    "Adewale", "Oluwaseun", "Folake", "Temitope", "Sade",
+    "Toyin", "Kayode", "Gbemisola", "Ayoola", "Chisom",
+    "Nkechi", "Emeka", "Obiageli", "Ikenna", "Uchenna",
+    "Chinwe", "Ngozi", "Ifeanyi", "Fatima", "Abdulrahman",
+    "Zainab", "Usman", "Halima", "Yakubu", "Blessing"
+  ],
+  "lastNames": [
+    "Okafor", "Balogun", "Ibrahim", "Eze", "Adebayo",
+    "Adeyemi", "Ogundimu", "Adesanya", "Oladele", "Akindele",
+    "Adeleke", "Ogundipe", "Adekunle", "Nwosu", "Obiora",
+    "Obi", "Anyanwu", "Okeke", "Chukwu", "Nwachukwu",
+    "Obiechina", "Onwudiwe", "Musa", "Abdullahi", "Sani",
+    "Garba", "Aliyu", "Danjuma", "Shehu", "Abubakar",
+    "Lawal", "Dike"
+  ],
+  "streetNames": [
+    "Adeniyi Jones Avenue", "Marina Road", "Independence Way", "Ahmadu Bello Way", "Garden Avenue",
+    "Awolowo Road", "Nnamdi Azikiwe Street", "Herbert Macaulay Way", "Tafawa Balewa Close", "Obafemi Awolowo Crescent",
+    "Niger Street", "Benue Close", "Lagos Bypass Road", "Old GRA Drive", "New GRA Close",
+    "Trans-Amadi Road", "Zik Avenue", "Yakubu Gowon Way", "Murtala Mohammed Road", "Sultan Bello Road",
+    "Polo Road", "Katagum Street", "Aba Road", "Eastern Bypass Road", "Enugu Road",
+    "Onitsha Road", "Owerri Road", "Badagry Expressway", "Ikorodu Road", "Victoria Island Close"
+  ],
   "regions": [
     {"code": "LA", "name": "Lagos", "phonePrefixes": ["70", "80", "81"], "cities": [
       {"name": "Ikeja", "postalCodes": ["100271", "100282"]},
@@ -29,6 +51,18 @@
       {"name": "Ibadan", "postalCodes": ["200211", "200212"]},
       {"name": "Ogbomosho", "postalCodes": ["210101", "210102"]},
       {"name": "Oyo", "postalCodes": ["211101", "211102"]}
+    ]},
+    {"code": "EN", "name": "Enugu", "phonePrefixes": ["70", "80", "81"], "cities": [
+      {"name": "Enugu", "postalCodes": ["400241", "400243"]},
+      {"name": "Nsukka", "postalCodes": ["410001", "410002"]}
+    ]},
+    {"code": "AN", "name": "Anambra", "phonePrefixes": ["70", "80", "81"], "cities": [
+      {"name": "Awka", "postalCodes": ["420001", "420002"]},
+      {"name": "Onitsha", "postalCodes": ["430001", "430002"]}
+    ]},
+    {"code": "KD", "name": "Kaduna", "phonePrefixes": ["70", "80", "90"], "cities": [
+      {"name": "Kaduna", "postalCodes": ["800001", "800002"]},
+      {"name": "Zaria", "postalCodes": ["810001", "810002"]}
     ]}
   ]
 }

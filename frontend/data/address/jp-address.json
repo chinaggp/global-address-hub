@@ -1,34 +1,179 @@
 {
   "country": "Japan",
   "countryCode": "JP",
-  "firstNames": ["Haruto", "Yui", "Ren", "Aoi", "Sora"],
-  "lastNames": ["Sato", "Suzuki", "Takahashi", "Tanaka", "Watanabe"],
-  "streetNames": ["Chuo Dori", "Sakura Dori", "Aoba Dori", "Ekimae Dori", "Honmachi"],
+  "firstNames": [
+    "Haruto",
+    "Yui",
+    "Ren",
+    "Aoi",
+    "Sora",
+    "大翔 (Hiroto)",
+    "樹 (Itsuki)",
+    "悠真 (Yūma)",
+    "翔太 (Shōta)",
+    "健太 (Kenta)",
+    "直人 (Naoto)",
+    "達也 (Tatsuya)",
+    "拓海 (Takumi)",
+    "幸太郎 (Kōtarō)",
+    "一郎 (Ichirō)",
+    "陽菜 (Hina)",
+    "結菜 (Yuina)",
+    "美咲 (Misaki)",
+    "桜 (Sakura)",
+    "莉子 (Riko)",
+    "沙織 (Saori)",
+    "奈々 (Nana)",
+    "千尋 (Chihiro)",
+    "優花 (Yūka)",
+    "明日香 (Asuka)",
+    "悠 (Yū)",
+    "凛 (Rin)",
+    "颯 (Hayate)",
+    "海 (Kai)",
+    "航 (Wataru)"
+  ],
+  "lastNames": [
+    "Sato",
+    "Suzuki",
+    "Takahashi",
+    "Tanaka",
+    "Watanabe",
+    "伊藤 (Itō)",
+    "山本 (Yamamoto)",
+    "中村 (Nakamura)",
+    "小林 (Kobayashi)",
+    "加藤 (Katō)",
+    "吉田 (Yoshida)",
+    "山田 (Yamada)",
+    "佐々木 (Sasaki)",
+    "山口 (Yamaguchi)",
+    "松本 (Matsumoto)",
+    "井上 (Inoue)",
+    "木村 (Kimura)",
+    "林 (Hayashi)",
+    "斎藤 (Saitō)",
+    "清水 (Shimizu)",
+    "山崎 (Yamazaki)",
+    "阿部 (Abe)",
+    "池田 (Ikeda)",
+    "橋本 (Hashimoto)",
+    "岡田 (Okada)",
+    "長谷川 (Hasegawa)",
+    "藤田 (Fujita)",
+    "後藤 (Gotō)",
+    "中島 (Nakashima)",
+    "石川 (Ishikawa)"
+  ],
+  "streetNames": [
+    "Chuo Dori",
+    "Sakura Dori",
+    "Aoba Dori",
+    "Ekimae Dori",
+    "Honmachi",
+    "銀座通り (Ginza Dori)",
+    "御堂筋 (Midōsuji)",
+    "表参道 (Omotesandō)",
+    "竹下通り (Takeshita Dori)",
+    "四条通り (Shijō Dori)",
+    "烏丸通り (Karasuma Dori)",
+    "御池通り (Oike Dori)",
+    "新宿通り (Shinjuku Dori)",
+    "青山通り (Aoyama Dori)",
+    "錦通り (Nishiki Dori)",
+    "元町 (Motomachi)",
+    "大手町 (Ōtemachi)",
+    "六本木 (Roppongi)",
+    "代官山町 (Daikanyamachō)",
+    "赤坂 (Akasaka)",
+    "長堀通り (Nagahori Dori)",
+    "心斎橋筋 (Shinsaibashi-suji)",
+    "道頓堀 (Dōtonbori)",
+    "天神橋筋 (Tenjinbashi-suji)",
+    "御幸通り (Miyuki Dori)",
+    "東大路通り (Higashiōji Dori)",
+    "大通 (Ōdōri)",
+    "北の丸通り (Kitanomaru Dori)",
+    "丸の内通り (Marunouchi Dori)",
+    "国際通り (Kokusai Dori)"
+  ],
   "regions": [
-    {"code": "13", "name": "Tokyo", "phonePrefixes": ["03", "042", "049"], "cities": [
-      {"name": "Chiyoda", "postalCodes": ["100-0001", "100-0005"]},
-      {"name": "Shinjuku", "postalCodes": ["160-0022", "160-0023"]},
-      {"name": "Setagaya", "postalCodes": ["154-0017", "156-0052"]}
-    ]},
-    {"code": "27", "name": "Osaka", "phonePrefixes": ["06", "072", "0725"], "cities": [
-      {"name": "Kita", "postalCodes": ["530-0001", "530-0012"]},
-      {"name": "Naniwa", "postalCodes": ["556-0011", "556-0016"]},
-      {"name": "Sakai", "postalCodes": ["590-0078", "590-0946"]}
-    ]},
-    {"code": "14", "name": "Kanagawa", "phonePrefixes": ["045", "044", "046"], "cities": [
-      {"name": "Yokohama", "postalCodes": ["231-0015", "220-0011"]},
-      {"name": "Kawasaki", "postalCodes": ["210-0005", "211-0004"]},
-      {"name": "Fujisawa", "postalCodes": ["251-0052", "251-0047"]}
-    ]},
-    {"code": "23", "name": "Aichi", "phonePrefixes": ["052", "0564", "0586"], "cities": [
-      {"name": "Nagoya", "postalCodes": ["460-0008", "450-0002"]},
-      {"name": "Okazaki", "postalCodes": ["444-0045", "444-0860"]},
-      {"name": "Ichinomiya", "postalCodes": ["491-0859", "491-0912"]}
-    ]},
-    {"code": "40", "name": "Fukuoka", "phonePrefixes": ["092", "093", "0942"], "cities": [
-      {"name": "Hakata", "postalCodes": ["812-0011", "812-0013"]},
-      {"name": "Kitakyushu", "postalCodes": ["802-0001", "803-0813"]},
-      {"name": "Kurume", "postalCodes": ["830-0032", "830-0017"]}
-    ]}
+    {
+      "code": "13",
+      "name": "Tokyo",
+      "phonePrefixes": ["03", "042", "049"],
+      "cities": [
+        {"name": "Chiyoda", "postalCodes": ["100-0001", "100-0005"]},
+        {"name": "Shinjuku", "postalCodes": ["160-0022", "160-0023"]},
+        {"name": "Setagaya", "postalCodes": ["154-0017", "156-0052"]}
+      ]
+    },
+    {
+      "code": "27",
+      "name": "Osaka",
+      "phonePrefixes": ["06", "072", "0725"],
+      "cities": [
+        {"name": "Kita", "postalCodes": ["530-0001", "530-0012"]},
+        {"name": "Naniwa", "postalCodes": ["556-0011", "556-0016"]},
+        {"name": "Sakai", "postalCodes": ["590-0078", "590-0946"]}
+      ]
+    },
+    {
+      "code": "14",
+      "name": "Kanagawa",
+      "phonePrefixes": ["045", "044", "046"],
+      "cities": [
+        {"name": "Yokohama", "postalCodes": ["231-0015", "220-0011"]},
+        {"name": "Kawasaki", "postalCodes": ["210-0005", "211-0004"]},
+        {"name": "Fujisawa", "postalCodes": ["251-0052", "251-0047"]}
+      ]
+    },
+    {
+      "code": "23",
+      "name": "Aichi",
+      "phonePrefixes": ["052", "0564", "0586"],
+      "cities": [
+        {"name": "Nagoya", "postalCodes": ["460-0008", "450-0002"]},
+        {"name": "Okazaki", "postalCodes": ["444-0045", "444-0860"]},
+        {"name": "Ichinomiya", "postalCodes": ["491-0859", "491-0912"]}
+      ]
+    },
+    {
+      "code": "40",
+      "name": "Fukuoka",
+      "phonePrefixes": ["092", "093", "0942"],
+      "cities": [
+        {"name": "Hakata", "postalCodes": ["812-0011", "812-0013"]},
+        {"name": "Kitakyushu", "postalCodes": ["802-0001", "803-0813"]},
+        {"name": "Kurume", "postalCodes": ["830-0032", "830-0017"]}
+      ]
+    },
+    {
+      "code": "01",
+      "name": "Hokkaido",
+      "phonePrefixes": ["011", "0155", "0166"],
+      "cities": [
+        {"name": "Sapporo", "postalCodes": ["060-0001", "060-0042"]},
+        {"name": "Asahikawa", "postalCodes": ["070-0033", "071-0001"]}
+      ]
+    },
+    {
+      "code": "26",
+      "name": "Kyoto",
+      "phonePrefixes": ["075", "0774", "0773"],
+      "cities": [
+        {"name": "Fushimi", "postalCodes": ["612-8025", "612-8047"]},
+        {"name": "Nakagyo", "postalCodes": ["604-8006", "604-8184"]}
+      ]
+    },
+    {
+      "code": "28",
+      "name": "Hyogo",
+      "phonePrefixes": ["078", "079", "0799"],
+      "cities": [
+        {"name": "Kobe", "postalCodes": ["650-0001", "651-0087"]},
+        {"name": "Himeji", "postalCodes": ["670-0012", "671-2201"]}
+      ]
+    }
   ]
 }
