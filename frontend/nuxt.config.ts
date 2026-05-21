@@ -67,6 +67,13 @@ export default defineNuxtConfig({
         { rel: 'canonical', href: siteUrl },
         { rel: 'icon', type: 'image/png', href: '/fav.png' },
         { rel: 'apple-touch-icon', href: '/fav.png' }
+      ],
+      script: [
+        {
+          async: true,
+          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1616618442863931',
+          crossorigin: 'anonymous'
+        }
       ]
     }
   },
