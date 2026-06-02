@@ -27,11 +27,11 @@
       <div>
         <h2 class="text-sm font-semibold text-white">{{ $t('footer.resources') }}</h2>
         <ul class="mt-4 space-y-2 text-sm">
-          <li><span>{{ $t('footer.api_coming_soon') }}</span></li>
-          <li><span>{{ $t('nav.blog') }}</span></li>
-          <li><NuxtLink class="hover:text-white" :to="`${localePath('/')}#faq`">{{ $t('nav.faq') }}</NuxtLink></li>
-          <li><NuxtLink class="hover:text-white" :to="localePath('/contact')">{{ $t('footer.about_us') }}</NuxtLink></li>
-          <li><NuxtLink class="hover:text-white" :to="localePath('/contact')">{{ $t('footer.contact') }}</NuxtLink></li>
+          <li><span class="text-slate-500 cursor-not-allowed select-none">{{ $t('footer.api_coming_soon') }}</span></li>
+          <li><NuxtLink class="hover:text-white transition-colors duration-200" :to="localePath('/blog')">{{ $t('nav.blog') }}</NuxtLink></li>
+          <li><NuxtLink class="hover:text-white transition-colors duration-200" :to="`${localePath('/')}#faq`">{{ $t('nav.faq') }}</NuxtLink></li>
+          <li><NuxtLink class="hover:text-white transition-colors duration-200" :to="localePath('/contact')">{{ $t('footer.about_us') }}</NuxtLink></li>
+          <li><NuxtLink class="hover:text-white transition-colors duration-200" :to="localePath('/contact')">{{ $t('footer.contact') }}</NuxtLink></li>
         </ul>
       </div>
       <div>

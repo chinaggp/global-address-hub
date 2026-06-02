@@ -12,7 +12,13 @@ const routes = [
   '/privacy-policy',
   '/terms-of-use',
   '/disclaimer',
-  '/contact'
+  '/contact',
+  '/blog',
+  '/blog/importance-of-mock-address-data-in-qa',
+  '/blog/demystifying-us-zip-code-formats',
+  '/blog/how-to-design-forms-for-global-addresses',
+  '/blog/database-seeding-best-practices',
+  '/blog/postal-formats-uk-japan-canada'
 ]
 
 export default defineNuxtConfig({

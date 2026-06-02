@@ -27,10 +27,15 @@
             </div>
           </div>
         </div>
-        <span>{{ $t('nav.api') }}</span>
-        <NuxtLink class="hover:text-brand-blue" :to="`${localePath('/')}#faq`">{{ $t('nav.faq') }}</NuxtLink>
-        <span>{{ $t('nav.blog') }}</span>
-        <NuxtLink class="hover:text-brand-blue" :to="localePath('/contact')">{{ $t('nav.about') }}</NuxtLink>
+        <div class="relative group">
+          <span class="text-slate-400 cursor-not-allowed flex items-center gap-1 select-none">
+            {{ $t('nav.api') }}
+            <span class="rounded bg-slate-100 px-1 py-0.5 text-[10px] text-slate-500 font-bold uppercase tracking-wider scale-90">Soon</span>
+          </span>
+        </div>
+        <NuxtLink class="hover:text-brand-blue transition-colors duration-200" :to="`${localePath('/')}#faq`">{{ $t('nav.faq') }}</NuxtLink>
+        <NuxtLink class="hover:text-brand-blue transition-colors duration-200" :to="localePath('/blog')">{{ $t('nav.blog') }}</NuxtLink>
+        <NuxtLink class="hover:text-brand-blue transition-colors duration-200" :to="localePath('/contact')">{{ $t('nav.about') }}</NuxtLink>
       </nav>
       <div class="group relative flex cursor-pointer items-center gap-2 text-sm font-medium text-brand-ink">
         <span class="text-lg">◎</span>
