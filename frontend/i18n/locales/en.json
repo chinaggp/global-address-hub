@@ -141,6 +141,83 @@
       "name": "Nigeria"
     }
   },
+  "regions": {
+    "AU": {
+      "NSW": "New South Wales",
+      "VIC": "Victoria",
+      "QLD": "Queensland",
+      "WA": "Western Australia",
+      "SA": "South Australia",
+      "TAS": "Tasmania",
+      "ACT": "Australian Capital Territory",
+      "NT": "Northern Territory"
+    },
+    "CA": {
+      "ON": "Ontario",
+      "QC": "Quebec",
+      "BC": "British Columbia",
+      "AB": "Alberta",
+      "NS": "Nova Scotia",
+      "MB": "Manitoba",
+      "SK": "Saskatchewan",
+      "NB": "New Brunswick",
+      "NL": "Newfoundland and Labrador",
+      "PE": "Prince Edward Island",
+      "YT": "Yukon",
+      "NT": "Northwest Territories",
+      "NU": "Nunavut"
+    },
+    "JP": {
+      "13": "Tokyo",
+      "27": "Osaka",
+      "14": "Kanagawa",
+      "23": "Aichi",
+      "40": "Fukuoka",
+      "01": "Hokkaido",
+      "26": "Kyoto",
+      "28": "Hyogo"
+    },
+    "NG": {
+      "LA": "Lagos",
+      "FC": "Federal Capital Territory",
+      "KN": "Kano",
+      "RV": "Rivers",
+      "OY": "Oyo",
+      "EN": "Enugu",
+      "AN": "Anambra",
+      "KD": "Kaduna"
+    },
+    "TR": {
+      "34": "Istanbul",
+      "06": "Ankara",
+      "35": "Izmir",
+      "16": "Bursa",
+      "07": "Antalya",
+      "01": "Adana",
+      "55": "Samsun",
+      "42": "Konya"
+    },
+    "UK": {
+      "ENG": "England",
+      "SCT": "Scotland",
+      "WLS": "Wales",
+      "NIR": "Northern Ireland",
+      "CNL": "Cornwall",
+      "YRK": "Yorkshire",
+      "MSD": "Merseyside",
+      "GMC": "Greater Manchester"
+    },
+    "US": {
+      "CA": "California",
+      "NY": "New York",
+      "TX": "Texas",
+      "FL": "Florida",
+      "IL": "Illinois",
+      "WA": "Washington",
+      "GA": "Georgia",
+      "CO": "Colorado"
+    }
+  },
   "countryPages": {
     "faqTitle": "{country} Address Generator FAQ",
     "US": {

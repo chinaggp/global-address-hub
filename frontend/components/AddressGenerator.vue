@@ -49,8 +49,24 @@ const { localizedCountryOptions } = useCountryContent()
 
 const selectedCountry = ref(props.defaultCountry)
 const selectedRegion = ref('')
-const countries = ref<CountryOption[]>(localizedCountryOptions.value)
-const regions = ref<RegionOption[]>([])
+const rawCountries = ref<CountryOption[]>([])
+const rawRegions = ref<RegionOption[]>([])
+
+const countries = computed(() => {
+  const list = rawCountries.value.length > 0 ? rawCountries.value : localizedCountryOptions.value
+  return list.map(c => ({
+    ...c,
+    name: t(`countries.${c.code}.name`, c.name)
+  }))
+})
+
+const regions = computed(() => {
+  return rawRegions.value.map(r => ({
+    ...r,
+    name: t(`regions.${selectedCountry.value}.${r.code}`, r.name)
+  }))
+})
+
 const loading = ref(false)
 const regionsLoading = ref(false)
 const error = ref('')
@@ -59,20 +75,20 @@ const resolvedRegionLabel = computed(() => (props.regionLabel === 'Region' ? t('
 async function loadCountries() {
   try {
     const remoteCountries = await getCountries()
-    countries.value = remoteCountries.length > 0 ? remoteCountries : localizedCountryOptions.value
+    rawCountries.value = remoteCountries
   } catch {
-    countries.value = localizedCountryOptions.value
+    rawCountries.value = []
   }
 }
 
 async function loadRegions() {
   selectedRegion.value = ''
-  regions.value = []
+  rawRegions.value = []
   regionsLoading.value = true
   try {
-    regions.value = await getRegions(selectedCountry.value)
+    rawRegions.value = await getRegions(selectedCountry.value)
   } catch {
-    regions.value = []
+    rawRegions.value = []
   } finally {
     regionsLoading.value = false
   }
